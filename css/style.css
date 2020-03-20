@@ -329,6 +329,7 @@ a:hover {
     padding: 40px;
     margin-left: 20%;
     background: #e8edf2;
+    height: 100vh !important;
 }
 
 .sb2-2-1 {

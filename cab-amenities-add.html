@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Mile Partner Admin</title>
+    <title>Admin - Cab Amenity</title>
     <!--== META TAGS ==-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -20,10 +20,10 @@
     <link rel="stylesheet" href="css/mob.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/materialize.css" />
-    <script src="js/jquery.min.js"></script>        
+    <script src="js/jquery.min.js"></script>
 </head>
 
-<body>
+<body ng-app="myApp" ng-controller="myCtrl">
     <!--== MAIN CONTRAINER ==-->
     <div class="container-fluid sb1">
         <div class="row" id="nav">
@@ -50,25 +50,27 @@
                     <ul>
                         <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
                         </li>
-                        <li class="active-bre"><a href="#"> Edit Amenity</a>
+                        <li class="active-bre"><a href="#"> Add Cab Amenity</a>
                         </li>
                     </ul>
                 </div>
                 <div class="sb2-2-add-blog sb2-2-1">
-                    <h2>Edit Amenity</h2>
-                    <form>
+                    <h2>Add New Amenity</h2>
+                    <form id="myForm">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="list-title" type="text" value="" class="validate">
-                                <label for="list-title">Enter Room Type</label>
+                                <input id="list-title" type="text" value="" class="validate" ng-model="Amenity">
+                                <label for="list-title">Enter Cab Amenity</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input type="submit" class="waves-effect waves-light btn-large" value="Submit">
+                                <input type="submit" class="waves-effect waves-light btn-large" ng-click="store()"
+                                    value="Submit">
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -94,10 +96,26 @@
     </section>
 
     <!--======== SCRIPT FILES =========-->
-    
+
     <script src="js/bootstrap.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/angularjs.js"></script>
+
+    <!-- angular code -->
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function ($scope) {
+            $scope.store = function () {
+                if ($scope.Amenity != undefined) {
+                    console.log($scope.Amenity);
+                    $('#myForm').trigger("reset");
+                }
+            }
+        });
+    </script>
+
 </body>
 
 </html>
